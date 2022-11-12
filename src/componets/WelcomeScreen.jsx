@@ -1,13 +1,19 @@
 import React from 'react';
 import Button from './Button'
+import Login from './Login';
+import { Route } from 'react-router-dom';
 
 function WelcomeScreen() {
+  const onClickPlay = () => {
+    <Route componet={Login}/> 
+  }
   return (
     <div>
       <h1 className='gameName'>Luiki Kart</h1>
       <div>
         <Button
-          text='Play'/>
+          text='Play'
+          manageClick={onClickPlay}/>
       </div>
       <div>
         <Button
