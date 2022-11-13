@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { GRID_SIZE, DIMENSIONS, PLAYER_SIZE } from '../config/const';
 
-import { track } from '../Aux';
+import { track } from '../TestSpeedway';
 
 function Speedway( {players}) {
   const canvasRef = useRef();
