@@ -1,15 +1,15 @@
-import './App.css'
+import './stylesheets/App.css'
 import GameWindow from './componets/GameWindow';
-//import io from 'socket.io-client'
+import Login from './componets/Login'
+import io from 'socket.io-client'
 
-//const socket = io.connect("http://localhost:3001");
-
+const socket = io.connect("localhost:3001");
 
 function App() {
 
   return (
     <div className="App">
-      <GameWindow/>
+      <Login/>
     </div>
   );
 }
