@@ -35,7 +35,8 @@ function GameWindow() {
   }, []);
 
   return (
-    <Speedway players={players} />
+    <Speedway players={players}
+      grid_size={30} />
   );
 }
 export default GameWindow;

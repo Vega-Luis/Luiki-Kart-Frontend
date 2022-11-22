@@ -3,7 +3,7 @@ import { GRID_SIZE, DIMENSIONS, PLAYER_SIZE } from '../config/const';
 
 import { track } from '../TestSpeedway';
 
-function Speedway( {players}) {
+function Speedway( {players, grid_size}) {
   const canvasRef = useRef();
 
   useEffect(function () {
@@ -15,7 +15,7 @@ function Speedway( {players}) {
         } else {
           context.fillStyle = 'gray';
         }
-        context.fillRect(y * GRID_SIZE, x * GRID_SIZE, GRID_SIZE, GRID_SIZE);
+        context.fillRect(y * grid_size, x * grid_size, grid_size, grid_size);
       }
     }
 
@@ -25,15 +25,15 @@ function Speedway( {players}) {
     const context = canvasRef.current.getContext('2d');
     players.forEach(player => {
       context.fillStyle = player.color;
-      context.fillRect(player.x * GRID_SIZE,  player.y * GRID_SIZE, PLAYER_SIZE, PLAYER_SIZE);
+      context.fillRect(player.x * grid_size,  player.y * grid_size, PLAYER_SIZE, PLAYER_SIZE);
     })
 
   },[players]);
 
 
   return (
-    <canvas ref={canvasRef} width={GRID_SIZE * DIMENSIONS}
-      height={GRID_SIZE * DIMENSIONS} className='speedway' />
+    <canvas ref={canvasRef} width={grid_size * DIMENSIONS}
+      height={grid_size * DIMENSIONS} className='speedway' />
   );
 }
 
