@@ -41,7 +41,7 @@ function CreateGame() {
   // sets the options for laps and players number
   function setNumericOptions(min, max) {
     let options = []
-    for (let i = 2; i < max; i++) {
+    for (let i = min; i < max; i++) {
       options.push({ label: i, value: i });
     }
     return options;
