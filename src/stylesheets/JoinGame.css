@@ -1,0 +1,15 @@
+.join-game-container {
+  margin: 3% auto 0% auto;
+  width: 1000px;
+  height: 540px;
+  background-color: #009b00;
+  border-radius: 10px;
+  padding: 2% 2% 2% 2%;
+}
+.header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: black;
+  background-color: white;
+}

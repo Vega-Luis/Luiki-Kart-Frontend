@@ -8,13 +8,18 @@ export const MAX_LAPS = 6;
 
 export const PLAYER_1 = {
     color: 'blue',
-    x:0,
-    y:0
+    x: 0,
+    y: 0
 }
 export const PLAYER_2 = {
     color: 'red',
-    x:10,
-    y:10
+    x: 10,
+    y: 10
 }
 export const speedways = ['Pista 1', 'Pista 2', 'Pista 3'];
-export const gameTypes = ['Contra Jugadores','Contra Tiempo']
+export const gameTypes = ['Contra Jugadores', 'Contra Tiempo'];
+export const games = [
+        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
+        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
+        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '1/8' }
+    ];
