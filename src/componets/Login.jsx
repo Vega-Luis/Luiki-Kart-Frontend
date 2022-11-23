@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from './Button'
 import '../stylesheets/Login.css'
@@ -6,8 +6,23 @@ import '../stylesheets/Login.css'
 function Login() {
   const navigate = useNavigate();
 
+  const [userNickname, setUserNickname] = useState('DefaultNick');
+
+  /* Saving user nickname */
+  useEffect ( () => {
+    if (!userNickname) {
+      setUserNickname('Default');
+    }
+    localStorage.setItem('userNickname', userNickname);
+  },[userNickname]);
+ 
+  /* manage nickname change */
+  const handleNickname = (event) => {
+    setUserNickname(event.target.value);
+  };
+
+  /* manage on create game click */
   const createGameOnClick = () => {
-    console.log('onCreateGame');
     navigate('create-game');
   }
   return (
@@ -16,7 +31,12 @@ function Login() {
         <h1 className='game-title'>LUIKI KART</h1>
       </div>
       <div>
-        <input type='text' className='nickname' placeholder='Nickname'></input>
+        <input
+          type='text'
+          className='nickname'
+          placeholder='Nickname'
+          onChange={ handleNickname }
+         ></input>
       </div>
       <div>
       <Button
