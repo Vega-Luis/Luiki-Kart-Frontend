@@ -1,0 +1,21 @@
+.main-container {
+  background-color:#009b00;
+  border-radius: 10px;
+  padding-top: 20px;
+  margin: 5% auto auto auto;
+  width: 500px;
+  height: 600px;
+}
+
+.color-container {
+  margin: 0% auto 1rem auto;
+  width: 320px;
+  height: 250px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.slider-container {
+  margin: 50px auto 50px auto;
+  width: 320px;
+}

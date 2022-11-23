@@ -9,13 +9,13 @@ function Login() {
   const [userNickname, setUserNickname] = useState('DefaultNick');
 
   /* Saving user nickname */
-  useEffect ( () => {
+  useEffect(() => {
     if (!userNickname) {
       setUserNickname('Default');
     }
     localStorage.setItem('userNickname', userNickname);
-  },[userNickname]);
- 
+  }, [userNickname]);
+
   /* manage nickname change */
   const handleNickname = (event) => {
     setUserNickname(event.target.value);
@@ -35,39 +35,39 @@ function Login() {
           type='text'
           className='nickname'
           placeholder='Nickname'
-          onChange={ handleNickname }
-         ></input>
+          onChange={handleNickname}
+        ></input>
       </div>
       <div>
-      <Button
-        text='Crear Partida'
-        btnClass='login-button'
-        manageClick={createGameOnClick} />
-      <Button
-        text='Unirse a Partida'
-        btnClass='login-button'
-        manageClick={() => {
-          navigate('/join-game');
-        }}/>
+        <Button
+          text='Crear Partida'
+          btnClass='login-button'
+          manageClick={createGameOnClick} />
+        <Button
+          text='Unirse a Partida'
+          btnClass='login-button'
+          manageClick={() => {
+            navigate('/join-game');
+          }} />
       </div>
       <div>
         <Button
           btnClass='btn-ranking'
           manageClick={() => {
             navigate('/ranking');
-        }}/>
+          }} />
         <Button
           btnClass='btn-skin'
           manageClick={() => {
             navigate('/skin');
-        }}/>
+          }} />
         <Button
           btnClass='btn-stats'
           manageClick={() => {
             navigate('/stats');
-          }}/>
+          }} />
       </div>
-    </div>      
+    </div>
   );
 }
 
