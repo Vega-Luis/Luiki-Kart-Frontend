@@ -19,7 +19,7 @@ export const PLAYER_2 = {
 export const speedways = ['Pista 1', 'Pista 2', 'Pista 3'];
 export const gameTypes = ['Contra Jugadores', 'Contra Tiempo'];
 export const games = [
-        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
-        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
-        { code: 'ABCD', speedway: 'Pista 1', theme: 'Tema 1', players: '1/8' }
+        { code: 'A012', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
+        { code: 'A123', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
+        { code: 'A234', speedway: 'Pista 1', theme: 'Tema 1', players: '1/8' }
     ];

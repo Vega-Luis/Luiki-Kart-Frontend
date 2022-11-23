@@ -4,7 +4,7 @@ function GameLabel({ options }) {
   
   return (
     <div className="game-label-wraper">
-      {options.map(option => <p>{option}</p>)}
+      {options.map(option => <p key={option}>{option}</p>)}
     </div>
    );
 }

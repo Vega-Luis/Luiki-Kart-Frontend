@@ -9,28 +9,33 @@ function JoinGame() {
   const navigate = useNavigate();
   return (
     <div className='join-game-container'>
-      {/* Game header */ }
+      {/* Game header */}
       <GameLabel
-      options={ ['Codigo', 'Pista', 'Tematica', 'Jugadores']}/>
+        options={['Codigo', 'Pista', 'Tematica', 'Jugadores']} />
 
-      {games.map(game => <label><GameLabel
-        options={[game.code, game.speedway, game.theme, game.players]}/>
-        <input type='radio'></input></label>)}
-        <div className='back-create-btn-container'>
-            <Button
-              text='Atras'
-              btnClass='btn-back'
-              manageClick={() => {
-                navigate('/');
-              }} />
-            <Button
-              text='Unirse'
-              btnClass='btn-create'
-              manageClick={() => {
-                navigate('/game');
-              }} />
-          </div>
-    </div> 
+      {games.map(game =>
+        <div className='radio-list' key={game.code}>
+          <label >
+            <input type='radio'></input>
+            <GameLabel options={[game.code, game.speedway, game.theme, game.players]} />
+          </label>
+        </div>)}
+
+      <div className='back-create-btn-container'>
+        <Button
+          text='Atras'
+          btnClass='btn-back'
+          manageClick={() => {
+            navigate('/');
+          }} />
+        <Button
+          text='Unirse'
+          btnClass='btn-create'
+          manageClick={() => {
+            navigate('/game');
+          }} />
+      </div>
+    </div>
   );
 }
 
