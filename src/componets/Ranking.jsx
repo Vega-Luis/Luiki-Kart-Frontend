@@ -8,6 +8,8 @@ function Ranking() {
 
   return (
     <div className="join-game-container">
+      <h1 className="game-title">Ranking</h1>
+
       {/* Ranking header */}
       < GameLabel
         options={['Jugador', 'Tiempo', 'Pista', 'Vueltas', 'Codigo']}
@@ -21,6 +23,7 @@ function Ranking() {
           </div>
         )
       }
+
 
       <div className='back-create-btn-container'>
         <Button
