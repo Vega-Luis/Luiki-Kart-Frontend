@@ -23,3 +23,9 @@ export const games = [
         { code: 'A123', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' },
         { code: 'A234', speedway: 'Pista 1', theme: 'Tema 1', players: '1/8' }
     ];
+
+export const ranking = [
+        { player: 'Juanito', time: '2.5 min', speedway: 'Pista 3', laps: '6', code: 'A012' },
+        { player: 'Pepe', time: '4.5 min', speedway: 'Pista 2', laps: '4', code: 'A123' },
+        { player: 'Lucas', time: '1.5 min', speedway: 'Pista 1', laps: '1', code: 'A234' }
+    ];  
