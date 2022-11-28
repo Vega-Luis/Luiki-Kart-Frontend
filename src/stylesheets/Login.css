@@ -1,0 +1,68 @@
+.login-container {
+  width: 350px;
+  margin: 10% auto 0 auto;
+  padding: 0px 0px 70px 0px;
+}
+
+.title-container {
+  margin: 0px auto 60px auto;
+}
+
+.game-title {
+  color:#cf00cf;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-family: cursive;
+  text-shadow: 2px 2px;
+}
+
+.login-button, .nickname {
+  font-size: larger;
+  font-weight: bold;
+  display: block;
+  width: 320px;
+  border-radius: 10px;
+}
+
+.login-button {
+  margin: 0px auto 20px auto;
+  height: 45px;
+  background: #004d00;
+  border-color: #4d004d;
+  color: #4d004d;
+}
+
+.nickname {
+  padding: 0%;
+  margin: 0px auto 50px auto;
+  height: 40px;
+  text-align: center;
+  background: #00cf00;
+  border-color: #cf00cf;
+  color: #cf00cf;
+}
+
+.btn-skin {
+  background-image: url("../../public/skin.png");
+}
+
+.btn-ranking {
+  background-image: url("../../public/ranking.png");
+}
+
+.btn-stats {
+  background-image: url("../../public/stats.png");
+}
+
+.btn-skin, .btn-ranking, .btn-stats {
+  border-color: #4d004d;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  margin-left: 12px;
+}
+.btn-skin:hover, .btn-ranking:hover, .btn-stats:hover, .login-button:hover {
+  box-shadow: 5px 5px 1px 1px #4d004d;
+  border-color: #004d00;
+}

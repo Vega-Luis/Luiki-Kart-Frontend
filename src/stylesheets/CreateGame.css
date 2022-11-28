@@ -1,0 +1,48 @@
+.create-game-container {
+  margin: 3% auto 0% auto;
+  width: 1000px;
+  height: 540px;
+  background-color: #009b00;
+  border-radius: 10px;
+  padding: 2% 2% 2% 2%; 
+}
+.cont {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.options-wrapper {
+  width: 500px;
+  height: 500px;
+  background-color:#009b00;
+}
+
+.back-create-btn-container {
+  background-color: black;
+  border-color: black;
+}
+.btn-back, .btn-create {
+  font-size: larger;
+  font-weight: bold;
+  display: block;
+  width: 220px;
+  border-radius: 10px;
+  height: 45px;
+  background: #004d00;
+  border-color: #4d004d;
+  color: #4d004d;
+  display: inline;
+  margin-top: 90px;
+}
+.btn-back {
+  float: left;
+  margin-left: 1rem;
+}
+
+.btn-create {
+  float: right;
+  margin-right: 1rem;
+}
+.speedway-selector {
+  padding: 1rem;
+}
