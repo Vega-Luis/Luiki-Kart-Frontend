@@ -9,8 +9,9 @@ import {socket} from './Client';
 function JoinGame() {
   const navigate = useNavigate();
   const [gameCode, setGameCode] = useState();
-  const [games, setGames] = useState([{ code: 'A012', speedway: 'Pista 1', theme: 'Tema 1', players: '5/8' }]);
+  const [games, setGames] = useState([]);
 
+  const [gamesComponent, setGamesComponent] = useState();
 
   const changeGameCode=e=> {
     setGameCode(e.target.value);
@@ -18,16 +19,16 @@ function JoinGame() {
 
   socket.on("availableGames",handleAvailableGames); 
   function handleAvailableGames(listGames){
-    setGames(games.concat(listGames));
-    console.log(games);
+    setGames(listGames);
   }
-  
-  return (
-    <div className='join-game-container'>
-      {/* Game header */}
-      <GameLabel
-        options={['Codigo', 'Pista', 'Tematica', 'Jugadores']} />
-      {useEffect(function(){games.map(game =>
+
+  useEffect(() => {
+    setGamesComponent(painGamesComponent);
+  },[games]);
+
+  function painGamesComponent() {
+    return (
+      games.map(game =>
         <div className='radio-list' key={game.code}>
           <label >
             <input
@@ -38,8 +39,16 @@ function JoinGame() {
             />
             <GameLabel options={[game.code, game.speedway, game.theme, game.players]} />
           </label>
-        </div>)},[games])}
+        </div>)
+    );
+  }
 
+  return (
+    <div className='join-game-container'>
+      {/* Game header */}
+      <GameLabel
+        options={['Codigo', 'Pista', 'Tematica', 'Jugadores']} />
+        {gamesComponent}
       <div className='back-create-btn-container'>
         <Button
           text='Atras'
