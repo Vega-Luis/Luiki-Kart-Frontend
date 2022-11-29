@@ -12,6 +12,7 @@ function JoinGame() {
   const [games, setGames] = useState([]);
 
   const [gamesComponent, setGamesComponent] = useState();
+  let active = false; 
 
   const changeGameCode=e=> {
     setGameCode(e.target.value);
@@ -22,9 +23,11 @@ function JoinGame() {
     console.log(listGames);
     setGames(listGames);
   }
+
   function joinGames(){
-    socket.emit("joinGames",gameCode); 
+    socket.emit("joinGames",gameCode);
     navigate('/game');
+    
   }
   useEffect(() => {
     setGamesComponent(painGamesComponent);

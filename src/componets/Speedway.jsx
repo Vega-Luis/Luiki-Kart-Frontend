@@ -36,7 +36,9 @@ function Speedway( {players, grid_size, track}) {
 
   return (
     <canvas ref={canvasRef} width={grid_size * DIMENSIONS}
-      height={grid_size * DIMENSIONS} className='speedway' />
+        height={grid_size * DIMENSIONS} className='speedway' />
+     
+    
   );
 }
 

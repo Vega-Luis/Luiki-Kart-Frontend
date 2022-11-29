@@ -2,6 +2,7 @@ import Button from './Button'
 import '../stylesheets/Login.css'
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import {socket} from './Client';
 
 function Login() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Login() {
     console.log(userNickname)
   }, [userNickname]);
 
+  
   /* manage nickname change */
   const handleNickname = (event) => {
     setUserNickname(event.target.value);
@@ -24,7 +26,13 @@ function Login() {
 
   /* manage on create game click */
   const createGameOnClick = () => {
+    socket.emit("nickname",userNickname); 
     navigate('create-game');
+  }
+
+  const joinGame = () =>{
+    socket.emit("nickname",userNickname);
+    navigate('/join-game');
   }
   return (
     <div className='login-container'>
@@ -47,9 +55,7 @@ function Login() {
         <Button
           text='Unirse a Partida'
           btnClass='login-button'
-          manageClick={() => {
-            navigate('/join-game');
-          }} />
+          manageClick={joinGame}/>
       </div>
       <div>
         <Button

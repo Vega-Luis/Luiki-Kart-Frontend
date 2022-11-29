@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import Speedway from './Speedway';
 import {track1,track2,track3 } from '../TestSpeedway';
 import {socket} from './Client'
+import { useNavigate } from 'react-router-dom';
 
 function createPlayer(data){
   let player = {
@@ -14,7 +15,7 @@ function createPlayer(data){
 
 function GameWindow() {
   //let data = {x:19,y:10, color:localStorage.getItem('skinColor')}//const color is the skin by user 
-  
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   //
   const [track, setTrack] = useState([]);
@@ -33,6 +34,7 @@ function GameWindow() {
   function handleGameFinish(player){
     start = false;
     alert("Player : " +player+ "is winner ")
+    navigate('/');
   }
 
   function handlelistPlayer(state){
@@ -55,6 +57,9 @@ function GameWindow() {
     for (let index = 1; index < state.length; index++) {
       const element = state[index];
       let player = createPlayer(element[2]);
+      if (element[0] === socket.id){
+        player.color= localStorage.getItem('skinColor');
+      }
       list.push(player);
     }
     setPlayers(list);
