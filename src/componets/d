@@ -16,20 +16,26 @@ function JoinGame() {
   const changeGameCode=e=> {
     setGameCode(e.target.value);
   }
-
+  /*
+  //socket.on("joinGame",handleGame);
+  function handleGame(dataGame){
+    console.log(dataGame);
+  }*/
   socket.on("availableGames",handleAvailableGames); 
   function handleAvailableGames(listGames){
     console.log(listGames);
     setGames(listGames);
   }
-  function joinGames(){
-    socket.emit("joinGames",gameCode); 
-    navigate('/game');
-  }
+
   useEffect(() => {
     setGamesComponent(painGamesComponent);
   },[games]);
 
+  function joinGames(){
+    socket.emit("joinGames",gameCode); 
+    
+    //navigate('/game');
+  }
   function painGamesComponent() {
     return (
       games.map(game =>
