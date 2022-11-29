@@ -13,13 +13,28 @@ function createPlayer(data){
 }
 
 function GameWindow() {
-  //let data = {x:19,y:12, color:localStorage.getItem('skinColor')}//const color is the skin by user 
+  //let data = {x:19,y:10, color:localStorage.getItem('skinColor')}//const color is the skin by user 
   
   const [players, setPlayers] = useState([]);
   //
   const [track, setTrack] = useState([]);
 
+  let start = false;
+
+  socket.on("start",handleStart);
+  socket.on("gameFinish",handleGameFinish);
   socket.on("listPlayer", handlelistPlayer);
+
+  function handleStart(){
+    start = true;
+    console.log("Todos los jugadores estan");
+  }
+
+  function handleGameFinish(player){
+    start = false;
+    alert("Player : " +player+ "is winner ")
+  }
+
   function handlelistPlayer(state){
       let data = state[0]; 
       if (data[0].speedway === "Pista 1"){
@@ -32,7 +47,9 @@ function GameWindow() {
         setTrack(track3); 
       }
       getPlayer(state);
+      
   }
+
   function getPlayer(state){
     let list = [];
     for (let index = 1; index < state.length; index++) {
@@ -45,8 +62,9 @@ function GameWindow() {
 
   useEffect(function()  {
     function handleKeyPress(e) {
-      console.log( e.keyCode);
-      socket.emit('keydown', e.keyCode);
+      if (start){
+        socket.emit('keydown', e.keyCode);
+      }
     }
     document.addEventListener('keydown', handleKeyPress);
     return function cleanUp() {
