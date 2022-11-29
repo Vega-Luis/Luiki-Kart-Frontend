@@ -19,6 +19,9 @@ function GameWindow() {
   const [players, setPlayers] = useState([]);
   //
   const [track, setTrack] = useState([]);
+  const [gameStatus, setGameStatus] = useState('En espera');
+  const [winner, setWinner] = useState('Por definir');
+  const [playerAmount, setPlayerAmount] = useState();
 
   let start = false;
 
@@ -33,12 +36,14 @@ function GameWindow() {
 
   function handleGameFinish(player){
     start = false;
-    alert("Player : " +player+ "is winner ")
-    navigate('/');
+    //alert("Player : " +player+ "is winner ")
+    setWinner('juan');
+    //navigate('/');
   }
 
   function handlelistPlayer(state){
-      let data = state[0]; 
+      let data = state[0];
+      setPlayerAmount(state[0].players)
       if (data[0].speedway === "Pista 1"){
         setTrack(track1);
       }
@@ -71,16 +76,29 @@ function GameWindow() {
         socket.emit('keydown', e.keyCode);
       }
     }
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener('keyup', handleKeyPress);
     return function cleanUp() {
-      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener('keyup', handleKeyPress);
     }
   }, []);
 
+  useEffect(() => {
+  },[winner,gameStatus,playerAmount])
+
+  
   return (
+    <div>
     <Speedway players={players}
     grid_size={30}
     track = {track} />
+    <div>
+ 
+      <p>
+        El ganador es: {winner}
+      </p>
+    </div>
+
+    </div>
   );
 }
 export default GameWindow;
